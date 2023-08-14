@@ -389,28 +389,14 @@ option:
         # Raspberry Pi 7\" display/touch screen \n \
         lcd_rotate=2 \n \
         '
-## Enable Raspberry Pi Camera Module
+## Camera Modules
 
-Raspberry Pi does not have the unicam device ( Raspberry Pi Camera ) enabled by default.
-Because this unicam device ( bcm2835-unicam ) as of now is used by libcamera opensource.
-So we have to explicitly enable it in local.conf.
-
-    RASPBERRYPI_CAMERA_V2 = "1"
-
-This will add the device tree overlay imx219 ( Raspberry Pi Camera Module V2 sensor driver 
-) to config.txt. Also, this will enable adding Contiguous Memory Allocation value in the 
-cmdline.txt.
-
-Similarly, the Raspberry Pi Camera Module v3 also has to be explicitly enabled in local.conf.
-
-    RASPBERRYPI_CAMERA_V3 = "1"
-
-This will add the device tree overlay imx708 ( Raspberry Pi Camera Module V3 sensor driver ) 
-to config.txt.
+Automatic camera detection is enabled by default. To override this behavior,
+set `RASPBERRYPI_CAMERA` to a predefined variable like `RASPBERRYPI_CAMERA_V2`,
+or an explicit camera module name such as `imx219`.
 
 See:
-* <https://www.raspberrypi.com/documentation/computers/camera_software.html>
-* <https://www.raspberrypi.org/blog/an-open-source-camera-stack-for-raspberry-pi-using-libcamera/>
+* <https://www.raspberrypi.com/documentation/computers/camera_software.html#if-you-do-need-to-alter-the-configuration>
 
 ## WM8960 soundcard support
 
